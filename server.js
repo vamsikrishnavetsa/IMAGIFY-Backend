@@ -12,7 +12,11 @@ await connectDB()
 
 // Intialize Middlewares
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin: "https://imagify-frontend-xi.vercel.app"],
+  methods: ["POST", "DELETE", "GET", "PUT", "PATCH"],
+  credentials: true,
+}))
 
 // API routes
 app.use('/api/user',userRouter)
